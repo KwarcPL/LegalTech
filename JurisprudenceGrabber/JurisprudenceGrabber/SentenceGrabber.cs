@@ -10,16 +10,21 @@ using Newtonsoft.Json.Linq;
 
 namespace JurisprudenceGrabber
 {
-    class Program
+    public class SentenceGrabber
     {
         static void Main(string[] args)
+        {
+            var sentences = GetSentences("Emerytura a co za tym idzie swobodna ocena dowodów");
+        }
+
+        public static IList<Jurisprudence> GetSentences(string text)
         {
             // Pobieranie listy słów kluczowych z SAOS
             var keywords = GetKeywords();
             // Wyszukanie słów kluczowych we wiadomości
-            var found = FindKeywordsInText("Emerytura a co za tym idzie swobodna ocena dowodów", keywords);
+            var found = FindKeywordsInText(text, keywords);
             // Pobranie orzeczeń spełniających kryterium
-            var jurispundences = GetJurisprudences(found);
+            return GetJurisprudences(found);
         }
 
         public static List<Jurisprudence> GetJurisprudences(IList<string> keywords, CourtType court = CourtType.COMMON, int size = 100)
