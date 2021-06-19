@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
 namespace JurisprudenceGrabber
@@ -15,12 +14,15 @@ namespace JurisprudenceGrabber
     {
         static void Main(string[] args)
         {
+            // Pobieranie listy słów kluczowych z SAOS
             var keywords = GetKeywords();
+            // Wyszukanie słów kluczowych we wiadomości
             var found = FindKeywordsInText("Emerytura a co za tym idzie swobodna ocena dowodów", keywords);
-            GetJurisprudences(found);
+            // Pobranie orzeczeń spełniających kryterium
+            var jurispundences = GetJurisprudences(found);
         }
 
-        public static void GetJurisprudences(IList<string> keywords, CourtType court = CourtType.COMMON, int size = 100)
+        public static List<Jurisprudence> GetJurisprudences(IList<string> keywords, CourtType court = CourtType.COMMON, int size = 100)
         {
             var filter = string.Empty;
             var phrases = keywords.Where(x => !string.IsNullOrWhiteSpace(x));
@@ -58,6 +60,8 @@ namespace JurisprudenceGrabber
             {
                 Console.WriteLine("{0} ({1})", (int) response.StatusCode, response.ReasonPhrase);
             }
+
+            return jurisprudences;
         }
 
         public static IList<string> GetKeywords()
