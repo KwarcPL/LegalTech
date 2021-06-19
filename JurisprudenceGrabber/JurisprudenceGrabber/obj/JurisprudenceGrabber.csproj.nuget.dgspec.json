@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Roman Chojnacki\\source\\repos\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj": {}
+    "D:\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Roman Chojnacki\\source\\repos\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj": {
+    "D:\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Roman Chojnacki\\source\\repos\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj",
+        "projectUniqueName": "D:\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj",
         "projectName": "JurisprudenceGrabber",
-        "projectPath": "C:\\Users\\Roman Chojnacki\\source\\repos\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj",
+        "projectPath": "D:\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj",
         "packagesPath": "C:\\Users\\Roman Chojnacki\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Roman Chojnacki\\source\\repos\\JurisprudenceGrabber\\JurisprudenceGrabber\\obj\\",
+        "outputPath": "D:\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

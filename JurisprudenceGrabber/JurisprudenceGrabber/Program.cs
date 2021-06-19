@@ -83,4 +83,45 @@ namespace JurisprudenceGrabber
         REGULATION,
         REASONS
     }
+
+    public static class Extensions
+    {
+        public static string GetString(this CourtType type)
+        {
+            switch (type)
+            {
+                case CourtType.COMMON:
+                    return "Sąd Powszechny";
+                case CourtType.SUPREME:
+                    return "Sąd Najwyższy";
+                case CourtType.ADMINISTRATIVE:
+                    return "Sąd Administracyjny";
+                case CourtType.CONSTITUTIONAL_TRIBUNAL:
+                    return "Trybunał Konstytucyjny";
+                case CourtType.NATIONAL_APPEAL_CHAMBER:
+                    return "Krajowa Izba Odwoławcza";
+                default:
+                    return "Nie zidentyfikowano";
+            }
+        }
+
+        public static string GetString(this JudgmentType type)
+        {
+            switch (type)
+            {
+                case JudgmentType.DECISION:
+                    return "Postanowienie";
+                case JudgmentType.RESOLUTION:
+                    return "Uchwała";
+                case JudgmentType.SENTENCE:
+                    return "Wyrok";
+                case JudgmentType.REGULATION:
+                    return "Zarządzenie";
+                case JudgmentType.REASONS:
+                    return "Uzasadnienie";
+                default:
+                    return "Nie zidentyfikowano";
+            }
+        }
+    }
 }
