@@ -1,0 +1,58 @@
+﻿<Window x:Class="WPF_ChatBOT.ChatBot.ChatBotView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_ChatBOT.ChatBot"
+        mc:Ignorable="d"
+        Title="ChatBotView" Height="350" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" >
+            <TextBlock HorizontalAlignment="Center">Keys</TextBlock>
+            <ListView Grid.Row="0" Grid.Column="0" Background="BlanchedAlmond" >
+                <ListViewItem>
+
+                </ListViewItem>
+            </ListView>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <TextBlock HorizontalAlignment="Center">Answers</TextBlock>
+        
+        <ListView Grid.Row="0" Grid.Column="1" Background="BlanchedAlmond">
+            <ListViewItem >
+                
+            </ListViewItem>
+        </ListView>
+        </StackPanel>
+
+        <DockPanel Grid.Row="1" Grid.Column="0" Background="LightBlue" >
+            <Button Width="Auto" Height="25" Background="DarkSeaGreen" Content="Add key" Margin="5" FontFamily="Calibri" FontSize="18" HorizontalAlignment="Stretch"/>
+            <Button Width="Auto" Height="25" Background="DarkSeaGreen" Content="Remove key" Margin="5" FontFamily="Calibri" FontSize="18" HorizontalAlignment="Stretch"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" Grid.Column="1" Background="LightBlue" >
+            <Button Width="Auto" Height="25" Background="DarkSeaGreen" Content="Add answer" Margin="5" FontFamily="Calibri" FontSize="18" HorizontalAlignment="Stretch"/>
+            <Button Width="Auto" Height="25" Background="DarkSeaGreen" Content="Remove answer" Margin="5" FontFamily="Calibri" FontSize="18" HorizontalAlignment="Stretch"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="2" Grid.Column="0" Background="CadetBlue" >
+            <Button Width="Auto" Height="25" Background="ForestGreen" Content="Cancel" Margin="5" FontFamily="Calibri" FontSize="18" HorizontalAlignment="Stretch"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="2" Grid.Column="1" Background="CadetBlue" >
+        <Button Width="Auto" Height="25" Background="ForestGreen" Content="Save" Margin="5" FontFamily="Calibri" FontSize="18" HorizontalAlignment="Stretch"/>
+        </DockPanel>
+
+    </Grid>
+</Window>
