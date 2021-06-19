@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
@@ -12,11 +14,13 @@ namespace JurisprudenceGrabber
     {
         static async Task Main(string[] args)
         {
-            await GetJurisprudences(new List<string>() { "emerytura" });
-            await GetKeywords();
+            var keywords = GetKeywords();
+            keywords = ProcessKeywords(keywords);
+            var found = FindKeywordsInText("Emerytura i swobodna ocena dowodów", keywords);
+            GetJurisprudences(found);
         }
 
-        public static async Task GetJurisprudences(IList<string> keywords, CourtType court = CourtType.COMMON, int size = 100)
+        public static void GetJurisprudences(IList<string> keywords, CourtType court = CourtType.COMMON, int size = 100)
         {
             var filter = string.Empty;
             var phrases = keywords.Where(x => !string.IsNullOrWhiteSpace(x));
@@ -56,7 +60,7 @@ namespace JurisprudenceGrabber
             }
         }
 
-        public static async Task GetKeywords()
+        public static IList<string> GetKeywords()
         {
             var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
             var keywords = new List<string>();
@@ -85,7 +89,57 @@ namespace JurisprudenceGrabber
             }
 
             Console.WriteLine($"Pobrano {keywords.Count} słów kluczowych");
+
+            return keywords;
         }
+
+        public static IList<string> ProcessKeywords(IList<string> keywords)
+        {
+            Console.WriteLine("Przetwarzanie słów kluczowych!");
+
+            keywords = keywords.Select(x => x.Replace("\\", "")).Distinct().ToList();
+
+            var content = string.Join("\"\n\"", keywords);
+            var name = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments,
+                    Environment.SpecialFolderOption.None), "keywords.csv");
+            File.WriteAllText(name, $"\"{content}\"");
+
+            Console.WriteLine($"Przetworzono {keywords.Count} słów kluczowych");
+
+            return keywords;
+        }
+
+        public static IList<string> FindKeywordsInText(string text, IList<string> keywords)
+        {
+            var found = new List<string>();
+
+            text = StripPunctuation(text).ToLower();
+            //var stopWords = new HashSet<string>(text.Split(), StringComparer.OrdinalIgnoreCase);
+            foreach (var keyword in keywords)
+            {
+                if (text.Contains(keyword))
+                {
+                    found.Add(keyword);
+                }
+            }
+
+            return found;
+        }
+
+        private static string StripPunctuation(string text)
+        {
+            var builder = new StringBuilder();
+
+            foreach (char character in text)
+            {
+                if (!char.IsPunctuation(character))
+                    builder.Append(character);
+            }
+
+            return builder.ToString();
+        }
+
 
         public class Jurisprudence
         {
