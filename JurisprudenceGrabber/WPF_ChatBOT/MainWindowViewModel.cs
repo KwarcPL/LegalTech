@@ -69,7 +69,7 @@ namespace WPF_ChatBOT
                         ObservableCollection<string> Answers = ChatBotModel.getInstance().getAnswers(word);
                         if (Answers.Count < 1)
                         {
-                            ChatLogModel.getInstance().addMessageToLog(_correspondenceNickName, _correspondenceNickName, "Nie rozumiem cię, napisz coś dobrego!");
+                            ChatLogModel.getInstance().addMessageToLog(_correspondenceNickName, _correspondenceNickName, "Czy mógłbyś zadać pytanie w inny sposób?");
                         }
                         else
                         {

@@ -35,7 +35,7 @@ namespace WPF_ChatBOT.ChatLog
         {
             imagePath = @"C:\imgs\Robo.jpg";
             userName = "Balera";
-            message = "Cześć, mów do mnie :)";
+            message = "Cześć, w czym mogę pomoć? :)";
             dateTime = DateTime.Now.ToShortTimeString();
             borderForeground = "#FF17212B";
             borderPosition = "Left";

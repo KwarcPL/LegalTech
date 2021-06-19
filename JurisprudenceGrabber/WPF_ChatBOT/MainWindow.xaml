@@ -31,7 +31,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" MinWidth="260" MaxWidth="550" />
+            <ColumnDefinition Width="0" MinWidth="0" MaxWidth="0" />
             <ColumnDefinition Width="2" />
             <ColumnDefinition Width="*"  />
         </Grid.ColumnDefinitions>
@@ -106,7 +106,7 @@
 
         
         <ListView Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Background="#FF17212B" 
-                  ItemsSource="{Binding contacts}" SelectedItem="{Binding correspondenceNickName}" BorderThickness="0"
+                  ItemsSource="{Binding contacts}" SelectedItem="{Binding correspondenceNickName}" SelectedIndex="0" BorderThickness="0"
                   HorizontalContentAlignment="Stretch"  >
 
             

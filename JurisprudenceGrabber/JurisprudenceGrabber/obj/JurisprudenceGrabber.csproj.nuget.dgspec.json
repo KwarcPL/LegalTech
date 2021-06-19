@@ -1,33 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj": {}
+    "G:\\Repos\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj": {}
   },
   "projects": {
-    "D:\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj": {
+    "G:\\Repos\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj",
+        "projectUniqueName": "G:\\Repos\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj",
         "projectName": "JurisprudenceGrabber",
-        "projectPath": "D:\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj",
-        "packagesPath": "C:\\Users\\Roman Chojnacki\\.nuget\\packages\\",
-        "outputPath": "D:\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\obj\\",
+        "projectPath": "G:\\Repos\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj",
+        "packagesPath": "C:\\Users\\Piotr\\.nuget\\packages\\",
+        "outputPath": "G:\\Repos\\LegalTech\\JurisprudenceGrabber\\JurisprudenceGrabber\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Roman Chojnacki\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Piotr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://packages.nuget.org/v1/FeedService.svc/": {},
-          "https://teamcity.mlabs.pl/httpAuth/app/nuget/v1/FeedService.svc/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -65,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
