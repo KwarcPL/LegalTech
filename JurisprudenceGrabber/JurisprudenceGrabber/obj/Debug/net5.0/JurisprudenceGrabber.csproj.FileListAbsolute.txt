@@ -16,3 +16,21 @@ C:\Users\Roman Chojnacki\source\repos\JurisprudenceGrabber\JurisprudenceGrabber\
 C:\Users\Roman Chojnacki\source\repos\JurisprudenceGrabber\JurisprudenceGrabber\obj\Debug\net5.0\JurisprudenceGrabber.genruntimeconfig.cache
 C:\Users\Roman Chojnacki\source\repos\JurisprudenceGrabber\JurisprudenceGrabber\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\Roman Chojnacki\source\repos\JurisprudenceGrabber\JurisprudenceGrabber\obj\Debug\net5.0\JurisprudenceGrabber.csproj.CopyComplete
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\obj\Debug\net5.0\JurisprudenceGrabber.csprojAssemblyReference.cache
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\obj\Debug\net5.0\JurisprudenceGrabber.GeneratedMSBuildEditorConfig.editorconfig
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\obj\Debug\net5.0\JurisprudenceGrabber.AssemblyInfoInputs.cache
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\obj\Debug\net5.0\JurisprudenceGrabber.AssemblyInfo.cs
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\obj\Debug\net5.0\JurisprudenceGrabber.csproj.CoreCompileInputs.cache
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\obj\Debug\net5.0\JurisprudenceGrabber.dll
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\obj\Debug\net5.0\ref\JurisprudenceGrabber.dll
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\obj\Debug\net5.0\JurisprudenceGrabber.pdb
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\bin\Debug\net5.0\JurisprudenceGrabber.exe
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\bin\Debug\net5.0\JurisprudenceGrabber.deps.json
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\bin\Debug\net5.0\JurisprudenceGrabber.runtimeconfig.json
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\bin\Debug\net5.0\JurisprudenceGrabber.runtimeconfig.dev.json
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\bin\Debug\net5.0\JurisprudenceGrabber.dll
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\bin\Debug\net5.0\ref\JurisprudenceGrabber.dll
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\bin\Debug\net5.0\JurisprudenceGrabber.pdb
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\obj\Debug\net5.0\JurisprudenceGrabber.csproj.CopyComplete
+D:\LegalTech\JurisprudenceGrabber\JurisprudenceGrabber\obj\Debug\net5.0\JurisprudenceGrabber.genruntimeconfig.cache

@@ -12,12 +12,22 @@ namespace JurisprudenceGrabber
     {
         static async Task Main(string[] args)
         {
+            await GetJurisprudences();
+            await GetKeywords();
+        }
+
+        public static async Task GetJurisprudences()
+        {
             var jurisprudences = new List<Jurisprudence>();
 
             Console.WriteLine("Pobieranie orzecznictwa!");
+
             using var client = new HttpClient {BaseAddress = new Uri("https://www.saos.org.pl/")};
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("api/search/judgments?pageSize=100&courtType=COMMON&sortingField=JUDGMENT_DATE&sortingDirection=DESC").Result;  // Blocking call!    
+            var response = client
+                .GetAsync(
+                    "api/search/judgments?pageSize=100&courtType=COMMON&sortingField=JUDGMENT_DATE&sortingDirection=DESC")
+                .Result;
             if (response.IsSuccessStatusCode)
             {
                 var result = response.Content.ReadAsStringAsync().Result;
@@ -28,7 +38,7 @@ namespace JurisprudenceGrabber
                 {
                     foreach (var child in items.Children())
                     {
-                        jurisprudences.Add(new Jurisprudence(child["href"]?.ToString(), child["courtType"]?.ToString(), 
+                        jurisprudences.Add(new Jurisprudence(child["href"]?.ToString(), child["courtType"]?.ToString(),
                             child["judgmentType"]?.ToString(), child["textContent"]?.ToString(),
                             child["keywords"]?.ToArray().Select(x => x.ToString())));
                     }
@@ -41,29 +51,62 @@ namespace JurisprudenceGrabber
                 Console.WriteLine("{0} ({1})", (int) response.StatusCode, response.ReasonPhrase);
             }
         }
-    }
 
-    public class Jurisprudence
-    {
-        public Jurisprudence(string link, string court, string type, string description, IEnumerable<string> keywords)
+        public static async Task GetKeywords()
         {
-            Link = new Uri(link);
-            Court = (CourtType) Enum.Parse(typeof(CourtType), court);
-            Type = (JudgmentType) Enum.Parse(typeof(JudgmentType), type);
-            Description = description;
-            Keywords = keywords.ToList();
+            var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+            var keywords = new List<string>();
+
+            Console.WriteLine("Pobieranie słów kluczowych!");
+
+            using var client = new HttpClient {BaseAddress = new Uri("https://www.saos.org.pl/")};
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            foreach (var letter in alphabet)
+            {
+                var response = client.GetAsync($"/keywords/COMMON/{letter}").Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = response.Content.ReadAsStringAsync().Result;
+                    var phrases = JArray.Parse(result);
+                    foreach (var phrase in phrases.Children())
+                    {
+                        var keyword = phrase["phrase"]?.ToString();
+                        keywords.Add(keyword);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("{0} ({1})", (int) response.StatusCode, response.ReasonPhrase);
+                }
+            }
+
+            Console.WriteLine($"Pobrano {keywords.Count} słów kluczowych");
         }
 
-        public Uri Link { get; }
+        public class Jurisprudence
+        {
+            public Jurisprudence(string link, string court, string type, string description,
+                IEnumerable<string> keywords)
+            {
+                Link = new Uri(link);
+                Court = (CourtType) Enum.Parse(typeof(CourtType), court);
+                Type = (JudgmentType) Enum.Parse(typeof(JudgmentType), type);
+                Description = description;
+                Keywords = keywords.ToList();
+            }
 
-        public CourtType Court { get; }
+            public Uri Link { get; }
 
-        public JudgmentType Type { get; }
+            public CourtType Court { get; }
 
-        public string Description { get; }
+            public JudgmentType Type { get; }
 
-        public IList<string> Keywords { get; }
+            public string Description { get; }
 
+            public IList<string> Keywords { get; }
+
+        }
     }
 
     public enum CourtType
