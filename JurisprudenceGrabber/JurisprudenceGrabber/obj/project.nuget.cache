@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "AIdsq32pzhVBiHnw3J59eWG8tiaPeGn8rTiWkzLMvHx+k46SWeV30JI4rdt6MPsBSGb2HrwwCobPgdYTpNUwgw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Roman Chojnacki\\source\\repos\\JurisprudenceGrabber\\JurisprudenceGrabber\\JurisprudenceGrabber.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Roman Chojnacki\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
