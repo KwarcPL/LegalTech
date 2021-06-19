@@ -146,31 +146,29 @@ namespace JurisprudenceGrabber
 
             return builder.ToString();
         }
+    }
 
-
-        public class Jurisprudence
+    public class Jurisprudence
+    {
+        public Jurisprudence(string link, string court, string type, string description,
+            IEnumerable<string> keywords)
         {
-            public Jurisprudence(string link, string court, string type, string description,
-                IEnumerable<string> keywords)
-            {
-                Link = new Uri(link);
-                Court = (CourtType) Enum.Parse(typeof(CourtType), court);
-                Type = (JudgmentType) Enum.Parse(typeof(JudgmentType), type);
-                Description = description;
-                Keywords = keywords.ToList();
-            }
-
-            public Uri Link { get; }
-
-            public CourtType Court { get; }
-
-            public JudgmentType Type { get; }
-
-            public string Description { get; }
-
-            public IList<string> Keywords { get; }
-
+            Link = new Uri(link);
+            Court = (CourtType)Enum.Parse(typeof(CourtType), court);
+            Type = (JudgmentType)Enum.Parse(typeof(JudgmentType), type);
+            Description = description;
+            Keywords = keywords.ToList();
         }
+
+        public Uri Link { get; }
+
+        public CourtType Court { get; }
+
+        public JudgmentType Type { get; }
+
+        public string Description { get; }
+
+        public IList<string> Keywords { get; }
     }
 
     public enum CourtType
