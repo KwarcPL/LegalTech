@@ -12,22 +12,26 @@ namespace JurisprudenceGrabber
     {
         static async Task Main(string[] args)
         {
-            await GetJurisprudences();
+            await GetJurisprudences(new List<string>() { "emerytura" });
             await GetKeywords();
         }
 
-        public static async Task GetJurisprudences()
+        public static async Task GetJurisprudences(IList<string> keywords, CourtType court = CourtType.COMMON, int size = 100)
         {
+            var filter = string.Empty;
+            var phrases = keywords.Where(x => !string.IsNullOrWhiteSpace(x));
+            if (keywords.Count > 0)
+            {
+                filter = $"&keywords={string.Join("&keywords=", phrases.ToArray())}";
+            }
+
             var jurisprudences = new List<Jurisprudence>();
 
             Console.WriteLine("Pobieranie orzecznictwa!");
 
             using var client = new HttpClient {BaseAddress = new Uri("https://www.saos.org.pl/")};
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            var response = client
-                .GetAsync(
-                    "api/search/judgments?pageSize=100&courtType=COMMON&sortingField=JUDGMENT_DATE&sortingDirection=DESC")
-                .Result;
+            var response = client.GetAsync($"api/search/judgments?pageSize={size}{filter}&courtType={court}&&sortingField=JUDGMENT_DATE&sortingDirection=DESC").Result;
             if (response.IsSuccessStatusCode)
             {
                 var result = response.Content.ReadAsStringAsync().Result;
@@ -71,8 +75,7 @@ namespace JurisprudenceGrabber
                     var phrases = JArray.Parse(result);
                     foreach (var phrase in phrases.Children())
                     {
-                        var keyword = phrase["phrase"]?.ToString();
-                        keywords.Add(keyword);
+                        keywords.Add(phrase["phrase"]?.ToString());
                     }
                 }
                 else
