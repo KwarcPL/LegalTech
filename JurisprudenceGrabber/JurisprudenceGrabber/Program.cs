@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
@@ -16,7 +17,7 @@ namespace JurisprudenceGrabber
         {
             var keywords = GetKeywords();
             keywords = ProcessKeywords(keywords);
-            var found = FindKeywordsInText("Emerytura i swobodna ocena dowodów", keywords);
+            var found = FindKeywordsInText("Emerytura a co za tym idzie swobodna ocena dowodów", keywords);
             GetJurisprudences(found);
         }
 
@@ -113,12 +114,11 @@ namespace JurisprudenceGrabber
         public static IList<string> FindKeywordsInText(string text, IList<string> keywords)
         {
             var found = new List<string>();
-
-            text = StripPunctuation(text).ToLower();
+            text = Regex.Replace($" {StripPunctuation(text).ToLower()} ", @"\s+", " ", RegexOptions.Multiline);
             //var stopWords = new HashSet<string>(text.Split(), StringComparer.OrdinalIgnoreCase);
             foreach (var keyword in keywords)
             {
-                if (text.Contains(keyword))
+                if (text.Contains($" {keyword} "))
                 {
                     found.Add(keyword);
                 }
@@ -133,8 +133,7 @@ namespace JurisprudenceGrabber
 
             foreach (char character in text)
             {
-                if (!char.IsPunctuation(character))
-                    builder.Append(character);
+                builder.Append(!char.IsPunctuation(character) ? character : ' ');
             }
 
             return builder.ToString();
