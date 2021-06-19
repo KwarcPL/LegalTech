@@ -13,10 +13,9 @@ namespace JurisprudenceGrabber
 {
     class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             var keywords = GetKeywords();
-            keywords = ProcessKeywords(keywords);
             var found = FindKeywordsInText("Emerytura a co za tym idzie swobodna ocena dowodów", keywords);
             GetJurisprudences(found);
         }
@@ -91,7 +90,7 @@ namespace JurisprudenceGrabber
 
             Console.WriteLine($"Pobrano {keywords.Count} słów kluczowych");
 
-            return keywords;
+            return ProcessKeywords(keywords);
         }
 
         public static IList<string> ProcessKeywords(IList<string> keywords)
@@ -104,7 +103,7 @@ namespace JurisprudenceGrabber
             var name = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments,
                     Environment.SpecialFolderOption.None), "keywords.csv");
-            File.WriteAllText(name, $"\"{content}\"");
+            //File.WriteAllText(name, $"\"{content}\"");
 
             Console.WriteLine($"Przetworzono {keywords.Count} słów kluczowych");
 
